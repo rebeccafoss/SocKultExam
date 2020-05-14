@@ -1,6 +1,8 @@
-\#INTRODUCTION This script computes an Agent-Based Model in which a
-group of agents has to solve a task, either in groups where they have
-the same level of ability of mixed levels.
+# INTRODUCTION
+
+This script computes an Agent-Based Model in which a group of agents has
+to solve a task, either in groups where they have the same level of
+ability of mixed levels.
 
 The model needs 4 fixed parameter: - N\_agents = number of agents -
 rounds = number of rounds - teaching = the effect of teaching varying
@@ -12,7 +14,7 @@ The model uses 4 predefined functions: - simulation() - getScore() -
 runTask() Each of these functions are defined below in the script along
 with explanations of what they do.
 
-\#SETUP
+# SETUP
 
 ``` r
 library(pacman)
@@ -22,7 +24,7 @@ p_load(ggplot2, tidyverse, patchwork, reshape)
 set.seed(177)
 ```
 
-\#MAKING GROUPS
+# MAKING GROUPS
 
 ``` r
 # We define the error rate as four different ones. 
@@ -58,7 +60,7 @@ df_mixed$id <- seq.int(from = 17, to = 32)
 df_mixed <- df_mixed[c(4,1,3,2)]
 ```
 
-\#SIMULATION FUNCTION - simulation()
+# SIMULATION FUNCTION - simulation()
 
 How the function works: - The simulation function takes the four inputs
 described above.
@@ -191,7 +193,7 @@ simulation <- function(N_agents,rounds, teaching){
 }
 ```
 
-\#Task FUNCTION - runTask()
+# Task FUNCTION - runTask()
 
 How the function works: - It takes the df, guesses, round and N\_agents
 as input - Loop through all groups - Loop through all the agents in each
@@ -361,7 +363,7 @@ runTask <- function(df, guesses, round, N_agents, teaching){
 }
 ```
 
-\#GET SCORE FUNCTION - getScore()
+# GET SCORE FUNCTION - getScore()
 
 How the function works: - It takes a guess (list of 50 digits) as input
 - Set the score to 0 - Loop through each of the 50 digits: - If the
@@ -383,7 +385,7 @@ getScore <- function(guess){
 }
 ```
 
-\#RUN SIMULATION
+# RUN SIMULATION
 
   - First, we setup the task. The task is defined as a string of 50
     digtis between 0 and 9. The agents have to figure out the correct
@@ -471,7 +473,7 @@ Class_04 <- simulation(
 )
 ```
 
-\#PLOT RESULTS
+# PLOT RESULTS
 
 ``` r
 #Combine data 

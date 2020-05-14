@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#INTRODUCTION 
+# INTRODUCTION 
 This script computes an Agent-Based Model in which a group of agents has to solve a task, either in groups where they have the same level of ability of mixed levels. 
 
 The model needs 4 fixed parameter: 
@@ -27,7 +27,7 @@ The model uses 4 predefined functions:
 - runTask()
 Each of these functions are defined below in the script along with explanations of what they do.
 
-#SETUP
+# SETUP
 ```{r Setup}
 library(pacman)
 p_load(ggplot2, tidyverse, patchwork, reshape)
@@ -36,7 +36,7 @@ p_load(ggplot2, tidyverse, patchwork, reshape)
 set.seed(177)
 ```
 
-#MAKING GROUPS
+# MAKING GROUPS
 ```{r Group-making}
 
 # We define the error rate as four different ones. 
@@ -73,7 +73,7 @@ df_mixed <- df_mixed[c(4,1,3,2)]
 ```
 
 
-#SIMULATION FUNCTION - simulation()
+# SIMULATION FUNCTION - simulation()
 
 How the function works: 
 - The simulation function takes the four inputs described above. 
@@ -189,7 +189,7 @@ simulation <- function(N_agents,rounds, teaching){
 
 ```
 
-#Task FUNCTION - runTask() 
+# Task FUNCTION - runTask() 
 
 How the function works: 
 - It takes the df, guesses, round and N_agents as input 
@@ -368,7 +368,7 @@ runTask <- function(df, guesses, round, N_agents, teaching){
 ```
 
 
-#GET SCORE FUNCTION - getScore()
+# GET SCORE FUNCTION - getScore()
 
 How the function works: 
 - It takes a guess (list of 50 digits) as input
@@ -393,7 +393,7 @@ getScore <- function(guess){
 ```
 
 
-#RUN SIMULATION 
+# RUN SIMULATION 
 
 - First, we setup the task. The task is defined as a string of 50 digtis between 0 and 9. The agents have to figure out the correct combination of digits. On every round, they produce one guess.  
 
@@ -474,7 +474,7 @@ Class_04 <- simulation(
 )
 ```
 
-#PLOT RESULTS 
+# PLOT RESULTS 
 ```{r}
 
 #Combine data 
